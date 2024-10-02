@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #fff; /* Changed to white */
     color: #333; /* Changed to dark gray */
@@ -88,26 +92,9 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: #333;
-    font-weight: bold;
-}
-
-/* Add this CSS to style the dropdowns */
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-nav ul li {
-    position: relative;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333; /* Changed to dark gray */
     padding: 10px 15px;
     display: block;
+    
 }
 
 nav ul li ul.dropdown {
@@ -476,6 +463,7 @@ h2 {
     width: 50%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     
@@ -484,8 +472,20 @@ h2 {
 .featured-video video {
     width: 100%;
     height: auto;
-    border: 10px solid #333;
+    border: 5px solid #333;
 }
+
+.narrative-art {
+    background-color: #fff;
+    border: 10px solid #333;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -674,7 +674,7 @@ footer a {
     border-radius: 8px;
     border: 2px solid #333;
     z-index: 10;
-    text-align: justify;
+    text-align: j;
 }
 
 .publication-item:hover + .hover-box {
