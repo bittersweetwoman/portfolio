@@ -16,42 +16,50 @@
         <div class="header-content">
             <h1>Amanda Smith</h1>
             <br />
-            <h2>Portfolio</h2>
+            <h2 id="portfolio-title">Portfolio</h2>
             <hr />
-            <br />
-            <nav>
-                <ul>
-                    <!-- <li><a href="#home">Home</a></li> -->
-                    <li>
-                        <a href="#about">About</a>
-                        <ul class="dropdown">
-                            <li><a href="#writing-card">Creative Writing</a></li>
-                            <li><a href="#visual-card">Visual Art</a></li>
-                            <li><a href="#curator-card">Curatorial Practice</a></li>
-                            <li><a href="#narrative-art">Bittersweet Woman</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#projects">Projects</a>
-                        <ul class="dropdown">
-                            <li><a href="#theater-of-relations">Theater of Relations</a></li>
-                            <li><a href="#connecting-stodulky">Connecting Stodůlky Project Proposal</a></li>
-                            <li><a href="#vita-d-arte">Exhibition Feature: "Vita d'Arte"</a></li>
-                            <li><a href="#schema-world-as-diagram">Schema: World as Diagram</a></li>
-                            <li><a href="#exhibition-portfolio-sample">Exhibition Portfolio - Sample</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#publications">Publications</a>
-                        <ul class="dropdown">
-                            <li><a href="#vik-muniz-review">Exhibition Review: Vik Muniz</a></li>
-                            <li><a href="#gosta-peterson-review">Exhibition Review: Gösta Peterson</a></li>
-                            <li><a href="#expo-chicago-review">Exhibition Review: Expo Chicago 2023</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <br id="menu-break" />
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <!-- <li><a href="#home">Home</a></li> -->
+                        <li>
+                            <a href="#about">About</a>
+                            <ul class="dropdown">
+                                <li><a href="#writing-card">Creative Writing</a></li>
+                                <li><a href="#visual-card">Visual Art</a></li>
+                                <li><a href="#curator-card">Curatorial Practice</a></li>
+                                <li><a href="#narrative-art">Bittersweet Woman</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#projects">Projects</a>
+                            <ul class="dropdown">
+                                <li><a href="#theater-of-relations">Theater of Relations</a></li>
+                                <li><a href="#connecting-stodulky">Connecting Stodůlky Project Proposal</a></li>
+                                <li><a href="#vita-d-arte">Exhibition Feature: "Vita d'Arte"</a></li>
+                                <li><a href="#schema-world-as-diagram">Schema: World as Diagram</a></li>
+                                <li><a href="#exhibition-portfolio-sample">Exhibition Portfolio - Sample</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#publications">Publications</a>
+                            <ul class="dropdown">
+                                <li><a href="#vik-muniz-review">Exhibition Review: Vik Muniz</a></li>
+                                <li><a href="#gosta-peterson-review">Exhibition Review: Gösta Peterson</a></li>
+                                <li><a href="#expo-chicago-review">Exhibition Review: Expo Chicago 2023</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu">
+                    <div class="mobile-menu-content">
+                        <h2>Menu</h2>
+                        <img id="menu-icon" src="./assets/icons/closed-book.png" alt="Menu">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="right-gallery">
             <video src="./assets/videos/videoBanner.mp4" width="auto" height="auto" autoplay loop muted
@@ -59,6 +67,15 @@
         </div>
 
     </header>
+    <div class="mobile-nav" id="mobile-nav">
+        <button id="close-menu" class="close-button">×</button>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
     <!-- <section id="about-intro">
 
     </section> -->

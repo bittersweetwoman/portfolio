@@ -55,7 +55,7 @@ header h2 {
     display: flex;
     flex-direction: column;
     align-items: left;
-    justify-content: left;
+    justify-content: space-between;
     padding: 3em;
     height: 300px;
     width: 40%;
@@ -85,6 +85,22 @@ nav ul {
     align-items: center;
 }
 
+/* Header Content Responsiveness */
+
+@media (max-width: 1050px) {
+    nav ul {
+        font-size: .9em;
+        padding-left: 1em;
+    }
+}
+
+@media (max-width: 1000px) {
+    nav ul {
+        font-size: .9em;
+        padding-left: 1em;
+    }
+}
+
 nav ul li {
     position: relative;
 }
@@ -94,7 +110,6 @@ nav ul li a {
     color: #333;
     padding: 10px 15px;
     display: block;
-    
 }
 
 nav ul li ul.dropdown {
@@ -143,12 +158,15 @@ nav ul li ul.dropdown li a:hover {
     flex: 0 0 60%; /* Takes 60% width */
     display: flex;
     flex-wrap: wrap;
+    justify-content: right;
     gap: 20px;
-    padding-left: 30px;
+    width:50%;
+    
+    /* padding-left: 30px; */
 }
 
 .right-gallery video {
-    width: 100%; /* Ensures image fills available width */
+    width: 95%; /* Ensures image fills available width */
     max-height: 500px; /* Set a max height for images */
     object-fit: cover; /* Ensure images maintain their aspect ratio */
     border: 10px solid #333;
@@ -174,20 +192,16 @@ nav ul li ul.dropdown li a:hover {
         padding: 0;
     }
 
-    .right-gallery {
-        margin-top: 20px;
-    }
-
-    .right-gallery img {
-        width: 48%; /* Adjust for smaller screen sizes */
+    .right-gallery video {
+        width: 90%;
     }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .right-gallery img {
-        width: 100%; /* Full width for small screens */
+        width: 100%;
     }
-}
+} */
 
 #about {
     display: flex;
@@ -225,8 +239,6 @@ nav ul li ul.dropdown li a:hover {
     text-align: justify;
     width: 100%;
 }
-
-
 
 .about-container {
     /* margin-top: -5em; */
@@ -338,11 +350,29 @@ h2 {
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 20px;
     border: 10px solid #333;
     padding: 2em;
+}
+
+@media screen and (max-width: 1000px) {
+    .featured-container {
+        justify-content: start;
+    }
+
+    #about {
+        justify-content: space-between;
+    }
+
+    .about-container {
+        width: 45%;
+    }
+
+    .featured-container {
+        width: 45%;
+    }
 }
 
 .featured-content {
@@ -374,19 +404,21 @@ h2 {
     align-items: center;
     align-content: center;
     width: 100%; /* Adjust to fit three cards per row */
-    overflow: hidden;
     transition: transform 0.3s ease;
-    max-height: 300px;
+    /* max-height: 300px; */
     text-align: left;
 }
 
 .featured-image {
     width: 30%;
-    height: 90%;
+    height: 100%;
+    padding-top: 1em;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    flex-direction: column;
+    justify-content: start;
+    /* align-items: center; */
+    align-content:start;
+    top: 0;
 }
 
 .featured-image img {
@@ -649,9 +681,9 @@ footer a {
         text-align: center;
     }
 
-    .right-gallery video {
+    /* .right-gallery video {
         width: 100%;
-    }
+    } */
 
     .about-container {
         padding: 20px;
@@ -679,4 +711,209 @@ footer a {
 
 .publication-item:hover + .hover-box {
     display: block;
+}
+
+/* Mobile Menu Styles */
+
+.menu {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#menu-icon {
+    width: 40px;
+    height: auto;
+}
+
+.mobile-menu {
+    display: none;
+    position: relative;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.mobile-menu-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    border: 5px solid #333;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+    padding-top: 60px;
+    text-align: center;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-nav ul li {
+    margin: 20px 0;
+}
+
+.mobile-nav ul li a {
+    font-size: 1.5em;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+    .featured-card {
+        height: auto;
+    }
+    .card-content h3 {
+        font-size: .9em;
+        font-weight: 700;
+    }
+    
+    #narrative-art h2 {
+        font-size: 1.6em;
+    }
+    #publications h3 {
+        font-size: 1em;
+    }
+    .contact {
+        width: 50%;
+    }
+}
+
+@media (max-width: 1000px) {
+    nav {
+        display: none;
+    }
+    #portfolio-title {
+        font-weight: 700;
+    }
+    #menu-break {
+        display: none;
+    }
+    .mobile-menu {
+        display: flex;
+    }
+    #about {
+        justify-content: center;
+    }
+    .about-card {
+        padding: 1em;
+    }   
+    .featured-image {
+        width: 100%;
+        height: auto;
+    }
+    .featured-container {
+        overflow-y: scroll;
+        padding: 1em;
+                height: 100em;
+
+    }
+    .featured-card {
+        width: 100%;
+        height: fit-content;
+        flex-direction: column;
+        justify-content: start;
+        padding: .5em;
+    }
+    .card-content {
+        width: 100%;
+    }
+    #publications {
+        height: 100em;
+        width: 45%;
+    }
+    .narrative-art {
+        width: 45%;
+    }
+
+    @media (max-width: 750px) {
+        .mobile-nav {
+            width: 40%;
+        }
+       header {
+        flex-direction: column;
+       }
+       .header-content {
+        width: 100%;
+       }
+       .right-gallery {
+        width: 100%;
+       }
+       .right-gallery video {
+        width: 100%;
+       }
+       #about {
+        flex-direction: column;
+       }
+       .about-container {
+        width: 100%;
+       }
+       .about-card {
+        width: 100%;
+       }
+       .featured-container {
+        width: 100%;
+        height: auto;
+       }
+       .featured-card {
+        width: 100%;
+        padding: 2em;
+       }
+       .card-content {
+        width: 100%;
+       }
+       #publications {
+        width: 100%;
+        height: auto;
+       }
+       .narrative-art {
+        width: 100%;
+       }
+       .contact-container {
+        width: 100%;
+        padding: 2em;
+       }
+       .contact {
+        width: 100%;
+       }
+
+    }
+}
+@media (max-width: 500px) {
+    .mobile-nav {
+        padding: 1em;
+        font-size: .8em;
+    }
+    .featured-card {
+        padding: 1em;
+    }
+    .contact-container {
+        padding: 1em;
+    }
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #333;
 }
