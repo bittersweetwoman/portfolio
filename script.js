@@ -89,30 +89,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // window.addEventListener("resize", adjustFeaturedHeight);
   // adjustFeaturedHeight(); // Initial call
-
-  function updateMediaSources() {
-    const videoElements = document.querySelectorAll("video");
-
-    videoElements.forEach((video) => {
-      const isMobile = window.innerWidth <= 500;
-      const videoSrc = video.getAttribute("src");
-
-      if (isMobile) {
-        if (videoSrc.includes("videoBanner")) {
-          video.setAttribute("src", "./assets/videos/videoBanner.gif");
-        } else if (videoSrc.includes("eyes")) {
-          video.setAttribute("src", "./assets/videos/eyes.gif");
-        }
-      } else {
-        if (videoSrc.includes("videoBanner")) {
-          video.setAttribute("src", "./assets/videos/videoBanner.mp4");
-        } else if (videoSrc.includes("eyes")) {
-          video.setAttribute("src", "./assets/videos/eyes.mp4");
-        }
-      }
-    });
-  }
-
-  window.addEventListener("resize", updateMediaSources);
-  updateMediaSources(); // Initial call
 });
