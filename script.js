@@ -58,6 +58,28 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileNav = document.getElementById("mobile-nav");
   const closeMenuButton = document.getElementById("close-menu");
 
+  const headerContent = document.querySelector(".header-content");
+  const stickyMobileMenu = document.getElementById("sticky-mobile-menu");
+  const stickyMenuIcon = document.getElementById("sticky-icon");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > headerContent.offsetHeight) {
+      stickyMobileMenu.style.display = "flex";
+    } else {
+      stickyMobileMenu.style.display = "none";
+    }
+  });
+
+  stickyMenuIcon.addEventListener("click", function () {
+    if (mobileNav.style.display === "block") {
+      mobileNav.style.display = "none";
+      stickyMenuIcon.src = "./assets/icons/closed-book.png";
+    } else {
+      mobileNav.style.display = "block";
+      stickyMenuIcon.src = "./assets/icons/open-book.png";
+    }
+  });
+
   menuIcon.addEventListener("click", function () {
     mobileNav.style.display = "block";
     menuIcon.src = "./assets/icons/open-book.png";
@@ -69,9 +91,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.addEventListener("click", function (e) {
-    if (!mobileNav.contains(e.target) && e.target !== menuIcon) {
+    if (
+      !mobileNav.contains(e.target) &&
+      e.target !== menuIcon &&
+      !stickyMobileMenu.contains(e.target) &&
+      e.target !== stickyMenuIcon
+    ) {
       mobileNav.style.display = "none";
       menuIcon.src = "./assets/icons/closed-book.png";
+      stickyMenuIcon.src = "./assets/icons/closed-book.png";
     }
   });
 
@@ -90,3 +118,5 @@ document.addEventListener("DOMContentLoaded", function () {
   // window.addEventListener("resize", adjustFeaturedHeight);
   // adjustFeaturedHeight(); // Initial call
 });
+
+document.addEventListener("DOMContentLoaded", function () {});
