@@ -792,7 +792,10 @@ footer a {
         display: none;
     }
     #portfolio-title {
-        font-weight: 700;
+        font-weight: 600;
+        border-bottom: 2px solid #333; /* Adjust color and thickness as needed */
+        padding-bottom: 0.5em; /* Optional: Add some padding for spacing */
+
     }
     #menu-break {
         display: none;
