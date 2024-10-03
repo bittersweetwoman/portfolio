@@ -804,7 +804,9 @@ footer a {
     }
     .mobile-menu {
         display: flex;
+        margin-top: -0.5em;
     }
+      
     #about {
         justify-content: center;
     }
@@ -849,6 +851,7 @@ footer a {
        .header-content {
         width: 100%;
        }
+     
        .right-gallery {
         width: 100%;
        }
