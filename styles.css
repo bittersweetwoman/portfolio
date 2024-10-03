@@ -482,8 +482,8 @@ h2 {
 
 
 .featured-video {
-    width: 50%;
-    height: 100%;
+    width: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -503,9 +503,11 @@ h2 {
     padding: 2em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     text-align: justify;
+    width: 50%;
+    height: fit-content;
 }
 
 
