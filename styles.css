@@ -615,6 +615,31 @@ footer a {
     text-decoration: none;
     font-weight: bold;
 }
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nowhereMaps {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-top: 2px solid #333;
+    padding-top: 1em;
+}
+
+.nowhereMaps img {
+    background-color: #333;
+    border-radius: 50%;
+}
+.nowhereMaps a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
 
 /* Mobile responsiveness */
 @media (max-width: 1024px) {
@@ -985,7 +1010,7 @@ footer a {
     position: fixed;
     top: 0;
     left: 0;
-    width: 40%;
+    width: 45%;
     height: 10%;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 1000;
@@ -1058,3 +1083,4 @@ footer a {
         display: flex;
     }
 } */
+
