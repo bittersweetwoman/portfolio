@@ -382,10 +382,20 @@ h2 {
 }
 
 @media screen and (max-width: 1000px) {
+    /* Match header padding on mobile */
+    #about {
+        padding: 1em;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .two-column-layout {
         flex-direction: column;
         align-items: stretch;
         gap: 30px;
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
 
     .left-column,
@@ -397,23 +407,33 @@ h2 {
     .about-container {
         order: 1;
         width: 100%;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
     }
 
     #research {
         order: 2;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     #projects {
         order: 3;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     #publications {
         order: 4;
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    /* Ensure sections take full width on mobile */
+    /* Ensure sections take full width on mobile and match header width */
     .featured-container {
         width: 100%;
+        box-sizing: border-box;
     }
 }
 
@@ -931,6 +951,9 @@ footer a {
       
     #about {
         justify-content: center;
+        padding: 1em;
+        width: 100%;
+        box-sizing: border-box;
     }
     .about-card {
         padding: 1em;
@@ -943,6 +966,8 @@ footer a {
         padding: 1em;
         height: auto;
         overflow: visible;
+        width: 100%;
+        box-sizing: border-box;
     }
     .featured-card {
         width: 100%;
@@ -955,7 +980,9 @@ footer a {
         width: 100%;
     }
     .narrative-art {
-        width: 45%;
+        width: 100%;
+        padding: 1em;
+        box-sizing: border-box;
     }
 
     @media (max-width: 750px) {
@@ -977,9 +1004,15 @@ footer a {
        }
        #about {
         flex-direction: column;
+        padding: 1em;
+        width: 100%;
+        box-sizing: border-box;
        }
        .about-container {
         width: 100%;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
        }
        .about-card {
         width: 100%;
@@ -987,6 +1020,8 @@ footer a {
        .featured-container {
         width: 100%;
         height: auto;
+        padding: 1em;
+        box-sizing: border-box;
        }
        .featured-card {
         width: 100%;
@@ -1000,10 +1035,13 @@ footer a {
        }
        .contact-container {
         width: 100%;
-        padding: 2em;
+        padding: 1em;
+        box-sizing: border-box;
        }
        .contact {
         width: 100%;
+        padding: 1em;
+        box-sizing: border-box;
        }
 
     }
