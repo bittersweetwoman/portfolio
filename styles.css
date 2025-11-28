@@ -1143,6 +1143,7 @@ footer a {
     padding: 1em;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border: 5px solid #333;
+    will-change: display;
 }
 
 .sticky-mobile-menu .mobile-menu {

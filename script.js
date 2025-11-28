@@ -36,20 +36,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Smooth scrolling for nav links
   const navLinks = document.querySelectorAll(
-    "nav ul li a, .mobile-nav ul li a"
+    "nav ul li a, .mobile-nav ul li a, .sticky-mobile-menu nav a"
   );
   navLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
-      const targetId = this.getAttribute("href").substring(1);
-      const targetElement = document.getElementById(targetId);
-      window.scrollTo({
-        top: targetElement.offsetTop,
-        behavior: "smooth",
-      });
-      document.getElementById("mobile-nav").style.display = "none";
-      document.getElementById("menu-icon").src =
-        "./assets/icons/closed-book.svg";
+      const targetId = this.getAttribute("href");
+      if (!targetId || !targetId.startsWith("#")) return;
+      
+      const targetIdClean = targetId.substring(1);
+      const targetElement = document.getElementById(targetIdClean);
+      
+      if (targetElement) {
+        // Calculate position accounting for any fixed headers
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset;
+        
+        // Account for sticky menu height if visible (approximately 10% of viewport)
+        const stickyMenuOffset = window.innerWidth <= 1000 ? window.innerHeight * 0.1 : 0;
+        
+        window.scrollTo({
+          top: offsetPosition - stickyMenuOffset - 20, // 20px extra padding
+          behavior: "smooth",
+        });
+      }
+      
+      // Close mobile nav if open
+      const mobileNav = document.getElementById("mobile-nav");
+      if (mobileNav) {
+        mobileNav.style.display = "none";
+      }
+      const menuIcon = document.getElementById("menu-icon");
+      if (menuIcon) {
+        menuIcon.src = "./assets/icons/closed-book.svg";
+      }
     });
   });
 
@@ -62,13 +82,27 @@ document.addEventListener("DOMContentLoaded", function () {
   const stickyMobileMenu = document.getElementById("sticky-mobile-menu");
   const stickyMenuIcon = document.getElementById("sticky-icon");
 
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > headerContent.offsetHeight) {
+  // Show/hide sticky menu based on scroll position
+  // Always show when not at the top, regardless of scroll direction
+  function updateStickyMenu() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Show sticky menu whenever not at the top of the page (with small threshold)
+    if (scrollTop > 50) {
       stickyMobileMenu.style.display = "flex";
     } else {
       stickyMobileMenu.style.display = "none";
     }
-  });
+  }
+  
+  // Update on scroll
+  window.addEventListener("scroll", updateStickyMenu, { passive: true });
+  
+  // Also update on resize to handle browser bar changes
+  window.addEventListener("resize", updateStickyMenu, { passive: true });
+  
+  // Initial check
+  updateStickyMenu();
 
   stickyMenuIcon.addEventListener("click", function () {
     if (mobileNav.style.display === "block") {
