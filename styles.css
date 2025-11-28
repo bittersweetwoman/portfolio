@@ -364,6 +364,23 @@ h2 {
     padding: 2em;
 }
 
+/* Mobile order classes */
+.mobile-order-1 {
+    order: 1;
+}
+
+.mobile-order-2 {
+    order: 2;
+}
+
+.mobile-order-3 {
+    order: 3;
+}
+
+.mobile-order-4 {
+    order: 4;
+}
+
 @media screen and (max-width: 1000px) {
     .two-column-layout {
         flex-direction: column;
@@ -373,8 +390,30 @@ h2 {
 
     .left-column,
     .right-column {
-        flex: 1 1 100%;
-        max-width: 100%;
+        display: contents;
+    }
+
+    /* Reorder sections for mobile: About (1), Research (2), Projects (3), Publications (4) */
+    .about-container {
+        order: 1;
+        width: 100%;
+    }
+
+    #research {
+        order: 2;
+    }
+
+    #projects {
+        order: 3;
+    }
+
+    #publications {
+        order: 4;
+    }
+
+    /* Ensure sections take full width on mobile */
+    .featured-container {
+        width: 100%;
     }
 }
 
@@ -901,10 +940,9 @@ footer a {
         height: auto;
     }
     .featured-container {
-        overflow-y: scroll;
         padding: 1em;
-                height: 100em;
-
+        height: auto;
+        overflow: visible;
     }
     .featured-card {
         width: 100%;
