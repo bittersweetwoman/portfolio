@@ -157,25 +157,128 @@ document.addEventListener("DOMContentLoaded", function () {
   // Modal functionality for Echos of Migration
   const modal = document.getElementById("echos-modal");
   const modalTrigger = document.getElementById("echos-modal-trigger");
-  const modalClose = document.querySelector(".modal-close");
+  const modalClose = modal ? modal.querySelector(".modal-close") : null;
+
+  function openEchosModal() {
+    if (modal) {
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
+  }
+
+  function closeEchosModal() {
+    if (modal) {
+      modal.style.display = "none";
+      document.body.style.overflow = "";
+    }
+  }
 
   if (modalTrigger) {
     modalTrigger.addEventListener("click", function (e) {
       e.preventDefault();
-      modal.style.display = "block";
+      openEchosModal();
     });
   }
 
   if (modalClose) {
-    modalClose.addEventListener("click", function () {
-      modal.style.display = "none";
+    modalClose.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeEchosModal();
     });
   }
 
   // Close modal when clicking outside of it
-  window.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      modal.style.display = "none";
+  if (modal) {
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        closeEchosModal();
+      }
+    });
+  }
+});
+
+// About card modals
+document.addEventListener("DOMContentLoaded", function () {
+  // Modal mappings
+  const modalMap = {
+    "writing-view-link": "writing-modal",
+    "visual-view-link": "visual-modal",
+    "curator-view-link": "curator-modal"
+  };
+  
+  // Initialize each modal
+  Object.keys(modalMap).forEach(viewLinkId => {
+    const viewLink = document.getElementById(viewLinkId);
+    const modalId = modalMap[viewLinkId];
+    const modal = document.getElementById(modalId);
+    
+    if (!viewLink || !modal) {
+      return;
     }
+    
+    const closeButton = modal.querySelector(".about-modal-close");
+    const modalContent = modal.querySelector(".hover-box-content");
+    
+    function showModal() {
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+    
+    function hideModal() {
+      modal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+    
+    // Show modal on "View" link click
+    viewLink.addEventListener("click", function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      showModal();
+    });
+    
+    // Close button functionality
+    if (closeButton) {
+      closeButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        hideModal();
+      });
+    }
+    
+    // Close modal when clicking outside
+    if (modalContent) {
+      modalContent.addEventListener("click", function(e) {
+        e.stopPropagation();
+      });
+    }
+    
+    modal.addEventListener("click", function(e) {
+      if (e.target === modal) {
+        hideModal();
+      }
+    });
   });
+  
+  // Handle curator echos modal trigger
+  const curatorEchosTrigger = document.getElementById("curator-echos-modal-trigger");
+  const echosModal = document.getElementById("echos-modal");
+  const curatorModal = document.getElementById("curator-modal");
+  
+  if (curatorEchosTrigger && echosModal) {
+    curatorEchosTrigger.addEventListener("click", function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Close curator modal first
+      if (curatorModal) {
+        curatorModal.classList.remove("active");
+        document.body.style.overflow = ""; // Reset overflow when closing curator modal
+      }
+      
+      // Then open echos modal
+      echosModal.style.display = "block";
+      document.body.style.overflow = "hidden";
+    });
+  }
 });
