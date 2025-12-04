@@ -938,7 +938,7 @@ footer a {
     display: none;
     position: absolute;
     top: 0;
-    right: -200px; /* Adjust as needed */
+    left: -420px; /* Position to the left of the item */
     width: 400px; /* Adjust as needed */
     padding: 1em;
     background-color: #fff;

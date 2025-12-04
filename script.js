@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
       hoverBox.style.display = "block";
       const rect = item.getBoundingClientRect();
       hoverBox.style.top = `${rect.top + window.scrollY}px`;
-      hoverBox.style.left = `${rect.right + 20}px`; // Adjust as needed
+      hoverBox.style.left = `${rect.left - 420}px`; // Position to the left of the item
     });
 
     item.addEventListener("mouseleave", function () {
